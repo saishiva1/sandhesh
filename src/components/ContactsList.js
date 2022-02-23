@@ -5,7 +5,6 @@ export default function ContactsList({changeOnlist}) {
      const openMessageBox=(e)=>{
             e.preventDefault();
             e.stopPropagation();
-            console.log('yes')
             changeOnlist();
     }
   return (

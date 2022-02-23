@@ -5,7 +5,6 @@ export default function TopNav2({changeOnlist}) {
     const backToContactList=(e)=>{
         e.preventDefault();
         e.stopPropagation();
-        console.log('yes')
         changeOnlist();
 }
   return (

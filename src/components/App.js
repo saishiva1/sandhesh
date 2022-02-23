@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import TopNav from "./TopNav";
 import Bottom from "./Bottom";
 import TopNav2 from "./TopNav2";
@@ -6,19 +6,33 @@ import ContactsList from "./ContactsList";
 import MessageBox from "./MessageBox";
 
 function App() {
-  const [onlist,setOnlist] = useState(true)
+  const staticMessage = [{ text: "hello", isFrom: true }];
 
-  const changeOnlist=()=>{
-    if(onlist){
+  const [onlist, setOnlist] = useState(true);
+  const [messagesList, setMessageList] = useState(staticMessage);
+
+  const changeOnlist = () => {
+    if (onlist) {
       setOnlist(false);
-    }else{
+    } else {
       setOnlist(true);
     }
-  }
+  };
 
   return (
     <div className="App">
-      {onlist?<><TopNav/><ContactsList changeOnlist={changeOnlist}/></>:<><TopNav2 changeOnlist={changeOnlist}/><MessageBox/> <Bottom/></>} 
+      {onlist ? (
+        <>
+          <TopNav />
+          <ContactsList changeOnlist={changeOnlist} />
+        </>
+      ) : (
+        <>
+          <TopNav2 changeOnlist={changeOnlist} />
+          <MessageBox messagesList={messagesList} />
+          <Bottom messagesList={messagesList} setMessageList={setMessageList} />
+        </>
+      )}
     </div>
   );
 }
