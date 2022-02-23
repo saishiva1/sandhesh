@@ -43,7 +43,7 @@ export default function Bottom(props) {
           type="text"
           name="tomessage"
           id="textInput"
-          className="mr-2 rounded-md w-3/4 py-1"
+          className="mr-2 rounded-md w-3/4 py-1 outline-none"
           onKeyUp={sendMessageOnEnter}
           id='sc_input'
         />
