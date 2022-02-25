@@ -1,12 +1,12 @@
 import React from "react";
 import mainLogo from "./imageplaceholder.png";
 
-export default function TopNav2({changeOnlist}) {
-    const backToContactList=(e)=>{
-        e.preventDefault();
-        e.stopPropagation();
-        changeOnlist();
-}
+export default function TopNav2({ changeOnlist }) {
+  const backToContactList = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    changeOnlist();
+  };
   return (
     <section className="contact-nav">
       <nav className="flex justify-between py-3 px-2 bg-header fixed z-10 w-full top-0 flex-col-reverse">
@@ -24,7 +24,11 @@ export default function TopNav2({changeOnlist}) {
               clipRule="evenodd"
             />
           </svg>
-          <img src={mainLogo} className="w-8 h-8 rounded-full block mr-2" />
+          <img
+            src={mainLogo}
+            alt=""
+            className="w-8 h-8 rounded-full block mr-2"
+          />
           <p className="font-medium text-xl text-textColor">Contact Name</p>
         </div>
       </nav>

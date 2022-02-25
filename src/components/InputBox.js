@@ -1,30 +1,14 @@
-import React, { useRef,useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 
-export default function Bottom(props) {
-
-  const { messagesList, setMessageList } = props;
+export default function InputBox({ messagesList, setMessageList }) {
   const inputMsg = useRef();
-  useEffect(()=>{
-    console.log(inputMsg.current);
+  useEffect(() => {
     inputMsg.current.focus();
-  })
+  });
 
   const sendMessage = (e) => {
     e.preventDefault();
     e.stopPropagation();
-      if (inputMsg.current.value) {
-        setMessageList([
-          { text: inputMsg.current.value, isFrom: true },
-          ...messagesList,
-        ]);
-        inputMsg.current.value = "";
-      }
-  };
-
-  const sendMessageOnEnter = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (e.key == "Enter") {
     if (inputMsg.current.value) {
       setMessageList([
         { text: inputMsg.current.value, isFrom: true },
@@ -32,7 +16,20 @@ export default function Bottom(props) {
       ]);
       inputMsg.current.value = "";
     }
-  }
+  };
+
+  const sendMessageOnEnter = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (e.key === "Enter") {
+      if (inputMsg.current.value) {
+        setMessageList([
+          { text: inputMsg.current.value, isFrom: true },
+          ...messagesList,
+        ]);
+        inputMsg.current.value = "";
+      }
+    }
   };
 
   return (
@@ -45,7 +42,6 @@ export default function Bottom(props) {
           id="textInput"
           className="mr-2 rounded-md w-3/4 py-1 outline-none"
           onKeyUp={sendMessageOnEnter}
-          id='sc_input'
         />
         <svg
           onClick={sendMessage}

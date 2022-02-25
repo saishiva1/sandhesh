@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function TopNav() {
+export default function MainNav() {
   return (
     <section className="main-nav">
       <nav className="flex justify-between py-3 px-2 bg-header fixed z-10 w-full top-0">
